@@ -1,12 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client'; // Import from 'react-dom/client' for React 18+
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Get the root DOM element where your React app will be mounted
+const rootElement = document.getElementById('root');
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// Create a root using ReactDOM.createRoot for React 18+
+// This is the new way to render your application and enables new features like concurrent rendering.
+const root = ReactDOM.createRoot(rootElement);
+
+// Render your App component into the root
+// Using React.StrictMode is good practice for development as it helps identify potential problems.
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
